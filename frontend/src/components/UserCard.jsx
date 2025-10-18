@@ -20,6 +20,7 @@ const bg = useColorModeValue ("white", "gray.800");
 const [updatedUser, setUpdateUser] = useState(user);
 const {deleteUser, updateUser} = useUserStore()
 const { isOpen, onOpen, onClose } = useDisclosure()
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 const handleDeleteUser = async(pid) =>{
   const {success,message} = await deleteUser(pid)
   if(!success){
@@ -69,7 +70,7 @@ const handleUpdateUser = async (pid, updatedUser) => {
     bg={bg}
     >
 <Image 
-  src={user.image && user.image.startsWith('/uploads') ? `http://localhost:5000${user.image}` : user.image} 
+  src={user.image && user.image.startsWith('/uploads') ? `${BASE_URL}${user.image}` : user.image} 
   alt={user.name}  
   h={48} 
   w={'full'} 

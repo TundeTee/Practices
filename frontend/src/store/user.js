@@ -1,5 +1,6 @@
 import {create} from "zustand"
 
+const API_BASE = import.meta.env.VITE_API_URL || "";
 
 export const useUserStore = create((set) => ({
     users: [],
@@ -14,7 +15,7 @@ export const useUserStore = create((set) => ({
             formData.append('age', newUser.age);
             formData.append('image', newUser.imageFile);
             
-            const res = await fetch("/api/users",
+            const res = await fetch(`${API_BASE}/api/users`,
             {
                 method:"POST",
                 body: formData,
@@ -37,12 +38,12 @@ export const useUserStore = create((set) => ({
         }
     },
     fetchUsers: async () => {
-        const res = await fetch("/api/users");
+        const res = await fetch(`${API_BASE}/api/users`);
         const data = await res.json();
         set({users: data.data});
     },
     deleteUser: async (pid) => {
-        const res = await fetch (`/api/users/${pid}`,{
+        const res = await fetch (`${API_BASE}/api/users/${pid}`,{
             method: "DELETE",
         });
         const data = await res.json();
@@ -61,7 +62,7 @@ export const useUserStore = create((set) => ({
             formData.append('image', updatedUser.imageFile);
         }
         
-        const res = await fetch(`/api/users/${pid}`,{
+        const res = await fetch(`${API_BASE}/api/users/${pid}`,{
             method: "PUT",
             body: formData,
         });
