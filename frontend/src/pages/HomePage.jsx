@@ -19,7 +19,7 @@ fetchUsers();
     textAlign={"center"} 
     bgGradient={"linear(to-r, cyan.400, blue.500)"}
     bgClip={"text"}>
-Current Prodfile 🚀
+Current Profile 🚀
 </Text>
 <SimpleGrid columns={{
 base: 1,

@@ -27,7 +27,7 @@ const { colorMode, toggleColorMode} = useColorMode();
     bgGradient={"linear(to-r, cyan.400, blue.500)"}
     bgClip={"text"}
 >
-<Link to={"/"}>Profile Information 🫂 </Link>
+<Link to={"/"}>Profile Details 🫂 </Link>
 </Text>
 
 
